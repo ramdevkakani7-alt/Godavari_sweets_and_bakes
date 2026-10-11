@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#542c27">
+<meta name="description" content="Discover cakes, Indian sweets, chaat and bakery favourites at Godavari Sweets and Bakery, VIP Road, Nanded.">
+<title>Godavari Bakes | A Little Sweetness, Every Day</title>
+<!-- Razorpay Payment Gateway -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+:root{--ink:#30211e;--wine:#542c27;--berry:#7c373d;--rose:#f2d9d1;--cream:#fffaf3;--gold:#c69a55;--muted:#766762;--line:#eaded3;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+.topline{background:var(--wine);color:#fff4e9;font-size:.8rem;letter-spacing:.08em;text-align:center;padding:9px 14px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,250,243,.94);backdrop-filter:blur(14px);border-bottom:1px solid #eaded3}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:44px;height:44px;border-radius:50% 50% 48% 48%;display:grid;place-items:center;background:var(--wine);color:#f7d8a5;font-family:Georgia,serif;font-size:24px;box-shadow:inset 0 0 0 2px #d3ab6c}.brand-name{font-family:Georgia,"Times New Roman",serif;font-size:1.22rem;line-height:1.05;font-weight:700;letter-spacing:-.03em}.brand-name small{display:block;font-family:inherit;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--berry);margin-top:5px}
+.navlinks{display:flex;align-items:center;gap:27px;font-size:.9rem;color:#584440}.navlinks a:hover{color:var(--berry)}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;padding:12px 20px;font-weight:650;font-size:.9rem;transition:transform .2s,background .2s}.nav-cta,.btn-primary{background:var(--wine);color:#fffaf3}.nav-cta:hover,.btn-primary:hover{background:#713b34;transform:translateY(-2px)}.btn-outline{border:1px solid #b88f84;color:var(--wine);background:#fff9f2}.btn-outline:hover{transform:translateY(-2px);background:#f8e9df}.menu-toggle{display:none;background:none;border:0;font-size:1.6rem;color:var(--wine)}
+.hero{padding:60px 0 70px;overflow:hidden;position:relative}.hero-grid{display:grid;grid-template-columns:1fr 1.02fr;align-items:center;gap:48px}.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--berry);text-transform:uppercase;font-size:.74rem;font-weight:750;letter-spacing:.17em}.eyebrow:before{content:"";width:27px;height:1px;background:var(--gold)}h1,h2,h3,p{margin-top:0}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(3.2rem,6vw,5.7rem);line-height:.99;letter-spacing:-.065em;font-weight:500;margin:19px 0 22px;max-width:640px}h1 em{color:var(--berry);font-weight:500}.hero-copy{max-width:480px;color:var(--muted);font-size:1.08rem}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 34px}.trustline{display:flex;gap:15px;align-items:center;color:#685751;font-size:.85rem}.stars{color:#bd8b3c;letter-spacing:.12em;font-size:1rem}.hero-art{position:relative;min-height:500px;border-radius:48% 48% 24px 24px;overflow:hidden;background:linear-gradient(145deg,#e8b7a2,#f5dfc7 55%,#9b4d42);box-shadow:0 28px 60px #542c271c}.hero-art img{width:100%;height:100%;min-height:500px;object-fit:cover;display:block;mix-blend-mode:multiply;opacity:.91}.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#3e201b55,transparent 55%);pointer-events:none}.hero-note{position:absolute;z-index:1;bottom:22px;left:24px;color:#fffaf3}.hero-note span{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}.hero-note strong{font:2rem Georgia,serif}.round-stamp{position:absolute;right:-15px;top:40px;width:110px;height:110px;border-radius:50%;background:#fff8ec;color:var(--wine);border:1px solid #d8b67d;display:grid;place-items:center;text-align:center;font:italic 1.05rem Georgia,serif;line-height:1.15;transform:rotate(9deg);box-shadow:0 12px 28px #542c2720}.round-stamp small{display:block;font:700 .58rem system-ui;letter-spacing:.12em;text-transform:uppercase}
+.perks{background:#f5e8db;border-block:1px solid #eddbcb}.perks-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:23px 0;gap:20px}.perk{display:flex;align-items:center;justify-content:center;gap:12px;color:#59413a}.perk-icon{width:43px;height:43px;border-radius:50%;background:#fff8ef;display:grid;place-items:center;font-size:1.25rem}.perk strong{display:block;font:1.05rem Georgia,serif}.perk span{display:block;font-size:.78rem;color:var(--muted)}
+section{padding:86px 0}.section-head{text-align:center;max-width:650px;margin:0 auto 38px}.section-head .eyebrow{justify-content:center}.section-head h2{font:500 clamp(2.3rem,4vw,3.5rem)/1.05 Georgia,serif;letter-spacing:-.045em;margin:14px 0}.section-head p{color:var(--muted);margin:0}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.feature{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fffdf8;transition:transform .25s,box-shadow .25s}.feature:hover{transform:translateY(-5px);box-shadow:0 16px 35px #542c2710}.feature-img{height:210px;overflow:hidden;background:#ead2c2}.feature-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.feature:hover img{transform:scale(1.04)}.feature-body{padding:21px 22px 24px}.feature-body h3{font:1.55rem Georgia,serif;margin:0 0 7px}.feature-body p{color:var(--muted);font-size:.9rem;margin:0 0 13px}.text-link{color:var(--berry);font-size:.88rem;font-weight:700}
+.menu-section{background:#f8eee5}.menu-tools{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:0 auto 28px}.filter{border:1px solid #dcc6b9;background:transparent;color:#6b5049;border-radius:99px;padding:9px 17px;cursor:pointer;font-size:.86rem}.filter.active,.filter:hover{background:var(--wine);color:#fff;border-color:var(--wine)}.searchbox{width:min(350px,100%);display:block;margin:0 auto 28px;border:1px solid #dfcfc3;background:#fffaf5;border-radius:99px;padding:13px 18px;color:var(--ink);outline:none}.searchbox:focus{border-color:var(--berry);box-shadow:0 0 0 3px #7c373d18}.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.menu-item{background:#fffaf4;border:1px solid #eee0d4;border-radius:13px;padding:16px 17px;display:flex;justify-content:space-between;align-items:center;gap:12px}.menu-item h3{font-size:.94rem;font-weight:650;margin:0 0 3px}.menu-item small{color:var(--muted);font-size:.76rem}.price{white-space:nowrap;color:var(--berry);font-weight:750;font-size:.92rem}.menu-note{text-align:center;color:var(--muted);font-size:.82rem;margin:23px 0 0}
+.story-grid{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:60px}.story-photo{position:relative}.story-photo img{width:100%;height:450px;object-fit:cover;border-radius:190px 190px 18px 18px;display:block}.story-photo:before{content:"";position:absolute;inset:15px -15px -15px 15px;border:1px solid #cfa878;border-radius:190px 190px 18px 18px;z-index:-1}.story-copy h2{font:500 clamp(2.5rem,4vw,3.7rem)/1.05 Georgia,serif;letter-spacing:-.05em;margin:15px 0 22px}.story-copy p{color:var(--muted)}.story-list{list-style:none;padding:0;margin:24px 0;display:grid;gap:13px}.story-list li{display:flex;gap:12px;align-items:flex-start}.check{color:var(--berry);font-size:1.1rem;font-weight:800}
+.feedback{background:var(--wine);color:#fff6ec}.feedback .section-head p{color:#e6cbc1}.feedback .eyebrow{color:#e9bd82}.feedback-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.quote{background:#ffffff0b;border:1px solid #ffffff22;border-radius:16px;padding:23px}.quote .stars{margin-bottom:13px}.quote p{color:#f4e4dc;font:1.13rem/1.55 Georgia,serif}.quote small{color:#d8b7aa}.feedback-disclaimer{text-align:center;color:#d8b7aa;font-size:.76rem;margin-top:24px}
+.visit{padding:78px 0}.visit-card{background:#f0dfcf;border-radius:25px;padding:clamp(25px,5vw,55px);display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center}.visit-card h2{font:500 clamp(2.3rem,4vw,3.5rem)/1.04 Georgia,serif;letter-spacing:-.05em;margin:15px 0}.visit-card p{color:#6e554d}.contact-lines{display:grid;gap:16px}.contact-line{display:flex;gap:13px;align-items:flex-start}.contact-icon{background:#fff8ef;border-radius:50%;width:42px;height:42px;display:grid;place-items:center;flex-shrink:0}.contact-line strong{display:block;font-size:.9rem}.contact-line span{display:block;color:#6e554d;font-size:.86rem}.contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:23px}
+footer{background:#281916;color:#f8e9dc;padding:35px 0}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.footer-brand{font:1.25rem Georgia,serif}.footer-brand small{display:block;color:#c5a99c;font: .72rem system-ui;letter-spacing:.12em;text-transform:uppercase;margin-top:4px}.footer-links{display:flex;gap:20px;color:#e1c9bc;font-size:.85rem}.copyright{font-size:.76rem;color:#bda398;margin-top:22px;border-top:1px solid #ffffff1a;padding-top:18px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:850px){.navlinks{gap:15px}.hero-grid{gap:25px}.hero-art,.hero-art img{min-height:420px}.feature-grid{gap:12px}.menu-grid{grid-template-columns:repeat(2,1fr)}.story-grid{gap:35px}.feedback-grid{grid-template-columns:1fr}.quote{padding:20px}.quote p{margin-bottom:8px}}
+@media(max-width:650px){.wrap{width:min(100% - 30px,520px)}.nav{height:68px}.menu-toggle{display:block}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:var(--cream);padding:20px 25px 25px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:18px}.navlinks.open{display:flex}.nav-cta{text-align:center}.hero{padding:42px 0 48px}.hero-grid{grid-template-columns:1fr;gap:35px}h1{font-size:clamp(3.25rem,15vw,4.6rem)}.hero-art,.hero-art img{min-height:360px}.round-stamp{right:8px;top:20px;width:92px;height:92px;font-size:.9rem}.perks-grid{grid-template-columns:1fr;gap:15px;padding:20px 0}.perk{justify-content:flex-start}.perk-icon{width:38px;height:38px}section{padding:65px 0}.feature-grid{grid-template-columns:1fr}.feature-img{height:230px}.menu-grid{grid-template-columns:1fr}.story-grid{grid-template-columns:1fr;gap:35px}.story-photo{max-width:410px;margin:auto}.story-photo img{height:390px}.visit-card{grid-template-columns:1fr;gap:28px}.footer-row{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}.trustline{align-items:flex-start}.hero-actions .btn{flex:1}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="topline">MADE FOR LITTLE CELEBRATIONS & EVERYDAY CRAVINGS · NAMED WITH LOVE IN NANDED</div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Godavari Bakes home"><span class="brand-mark">G</span><span class="brand-name">Godavari Bakes<small>Sweets · Bakery · More</small></span></a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" id="menuToggle">☰</button>
+    <nav class="navlinks" id="navlinks"><a href="#favorites">Our favourites</a><a href="#menu">Menu</a><a href="#story">Our place</a><a href="#visit">Find us</a><a class="nav-cta" href="tel:+912462254488">Call the bakery ↗</a></nav>
+  </div>
+</header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid">
+  <div>
+    <div class="eyebrow">A Nanded favourite</div>
+    <h1>A little sweet.<br><em>A lot of love.</em></h1>
+    <p class="hero-copy">From celebration cakes to classic Indian sweets and chatpata chaat, find your next favourite at Godavari Sweets and Bakery.</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="#menu">Explore the menu <span>↗</span></a><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Godavari+Sweets+and+Bakery+VIP+Road+Nanded" target="_blank" rel="noopener">Get directions ↗</a></div>
+    <div class="trustline"><span class="stars">★★★★★</span><span>A local stop for cakes, sweets & savoury cravings</span></div>
+  </div>
+  <div class="hero-art">
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1100&q=85" alt="Beautiful layered celebration cake">
+    <div class="hero-note"><span>Made for your moments</span><strong>Every slice matters.</strong></div>
+    <div class="round-stamp"><small>Fresh joy</small>since<br>always ✦</div>
+  </div>
+</div></section>
+<div class="perks"><div class="wrap perks-grid">
+  <div class="perk"><div class="perk-icon">🎂</div><div><strong>Celebration cakes</strong><span>Classic flavours, happy occasions</span></div></div>
+  <div class="perk"><div class="perk-icon">🍬</div><div><strong>Indian sweet favourites</strong><span>A little tradition in every bite</span></div></div>
+  <div class="perk"><div class="perk-icon">🌶️</div><div><strong>Chaat & savoury snacks</strong><span>For the spicy-crunchy cravings</span></div></div>
+</div></div>
+<section id="favorites"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Something for every mood</div><h2>Find your kind of happy.</h2><p>Bring home a celebration, share a sweet with someone, or make an ordinary day delicious.</p></div>
+  <div class="feature-grid">
+    <article class="feature"><div class="feature-img"><img loading="lazy" src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=900&q=80" alt="Decorated cake for a celebration"></div><div class="feature-body"><h3>Cakes worth celebrating</h3><p>From Black Forest and Pineapple to Red Velvet and chocolate-rich favourites.</p><a class="text-link" href="#menu">Explore cake flavours →</a></div></article>
+    <article class="feature"><div class="feature-img"><img loading="lazy" src="https://images.unsplash.com/photo-1605197161470-5d8d5f8f6d7c?auto=format&fit=crop&w=900&q=80" alt="Indian sweets arranged for sharing" onerror="this.src='https://images.unsplash.com/photo-1589119908995-c6837fa14848?auto=format&fit=crop&w=900&q=80'"></div><div class="feature-body"><h3>Sweet little traditions</h3><p>Explore familiar Indian mithai favourites and treats made for sharing.</p><a class="text-link" href="#visit">Come by for a treat →</a></div></article>
+    <article class="feature"><div class="feature-img"><img loading="lazy" src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=80" alt="Crispy savoury snack"></div><div class="feature-body"><h3>Chaat-time favourites</h3><p>Pani puri, samosa chaat, shev puri and more for your savoury side.</p><a class="text-link" href="#visit">Plan your visit →</a></div></article>
+  </div>
+</div></section>
+<section class="menu-section" id="menu"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">A taste of our menu</div><h2>Sweet talk starts here.</h2><p>A selection of listed cake flavours and prices. Visit the store for the full, current menu.</p></div>
+  <div class="menu-tools" role="group" aria-label="Filter menu"><button class="filter active" data-filter="all">All items</button><button class="filter" data-filter="classic">Classic cakes</button><button class="filter" data-filter="chocolate">Chocolate cakes</button><button class="filter" data-filter="special">Special cakes</button><button class="filter" data-filter="snack">Toasts & drinks</button></div>
+  <input class="searchbox" id="menuSearch" type="search" placeholder="Search the menu… e.g. chocolate" aria-label="Search menu">
+  <div class="menu-grid" id="menuGrid">
+    <article class="menu-item" data-category="classic"><div><h3>Pineapple Cake</h3><small>Light, fruity classic</small></div><span class="price">₹425</span></article>
+    <article class="menu-item" data-category="classic"><div><h3>Black Forest Cake</h3><small>Chocolate & cherry favourite</small></div><span class="price">₹390</span></article>
+    <article class="menu-item" data-category="classic"><div><h3>Mix Fruit Cake</h3><small>Fruity and colourful</small></div><span class="price">₹520</span></article>
+    <article class="menu-item" data-category="classic"><div><h3>Butterscotch Cake</h3><small>Caramel-style crunch</small></div><span class="price">₹455</span></article>
+    <article class="menu-item" data-category="special"><div><h3>Honey Almond Cake</h3><small>A nutty, sweet favourite</small></div><span class="price">₹520</span></article>
+    <article class="menu-item" data-category="special"><div><h3>Rose Malai Cake</h3><small>Indian-inspired flavour</small></div><span class="price">₹520</span></article>
+    <article class="menu-item" data-category="special"><div><h3>Red Velvet Cake</h3><small>Rich colour, soft crumb</small></div><span class="price">₹585</span></article>
+    <article class="menu-item" data-category="special"><div><h3>Rasmalai Cake</h3><small>A celebratory fusion</small></div><span class="price">₹585</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Choco Delight</h3><small>Chocolate in every bite</small></div><span class="price">₹390</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Pure Chocolate</h3><small>A timeless chocolate cake</small></div><span class="price">₹425</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Choco Chips</h3><small>Chocolate chip goodness</small></div><span class="price">₹455</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Choco Black Magic</h3><small>For serious chocolate fans</small></div><span class="price">₹520</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Marble Choco Chips</h3><small>Marbled with chocolate chips</small></div><span class="price">₹585</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Choco Crunchy</h3><small>Chocolate with a crunch</small></div><span class="price">₹585</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Belgium KitKat</h3><small>A chocolatey celebration cake</small></div><span class="price">₹585</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Milky Oreo</h3><small>Cookie-inspired indulgence</small></div><span class="price">₹520</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Death By Chocolate</h3><small>For the ultimate chocolate mood</small></div><span class="price">₹650</span></article>
+    <article class="menu-item" data-category="chocolate"><div><h3>Walnut Brownie Chocolate</h3><small>Chocolate with walnut notes</small></div><span class="price">₹650</span></article>
+    <article class="menu-item" data-category="snack"><div><h3>Tangy Paneer Toast</h3><small>Savoury toast</small></div><span class="price">₹100</span></article>
+    <article class="menu-item" data-category="snack"><div><h3>Cheese & Chilli Toast</h3><small>Cheesy with a little kick</small></div><span class="price">₹100</span></article>
+  </div>
+</div></section>
+<section id="story"><div class="wrap story-grid">
+  <div class="story-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1556217477-d325251ece38?auto=format&fit=crop&w=1000&q=80" alt="Freshly prepared bakery treats"></div>
+  <div class="story-copy"><div class="eyebrow">A local stop in Nanded</div><h2>Good things are meant to be shared.</h2><p>Godavari Sweets and Bakery brings together the best kind of everyday choices: a cake for a milestone, mithai for a visit, or chaat when the craving calls.</p><ul class="story-list"><li><span class="check">✦</span><span><strong>Something for every occasion</strong><br>From birthday cakes to sweet boxes and casual treats.</span></li><li><span class="check">✦</span><span><strong>Sweet and savoury under one roof</strong><br>Choose from cakes, bakery favourites, Indian sweets and chaat.</span></li><li><span class="check">✦</span><span><strong>Right here on VIP Road</strong><br>Easy to find in Godavari Complex, Vishnu Nagar, Nanded.</span></li></ul></div>
+</div></section>
+<section class="visit" id="visit"><div class="wrap visit-card">
+  <div><div class="eyebrow">Come say hello</div><h2>Your next sweet stop is nearby.</h2><p>Drop in for a treat, browse the cake flavours, or call ahead to check what's available.</p></div>
+  <div class="contact-lines">
+    <div class="contact-line"><div class="contact-icon">⌖</div><div><strong>Visit us</strong><span>Godavari Sweets and Bakery<br>28, Godavari Complex, VIP Road, Nanded, Maharashtra 431602</span></div></div>
+    <div class="contact-line"><div class="contact-icon">◷</div><div><strong>Opening time</strong><span>9:00 AM Daily</span></div></div>
+  </div>
+</div></section>
+</main>
+
+<!-- Shopping Cart Widget & Payment Modal Injection -->
+<script>
+  const RAZORPAY_KEY_ID = "rzp_test_YOUR_KEY_HERE"; // Get this from razorpay.com
+  const SHOP_UPI_ID = "example@upi"; // Change to your actual UPI ID
+
+  const cartAndPaymentHTML = `
+  <div id="cart-widget" style="position:fixed; bottom:20px; right:20px; background:var(--wine); color:#fff; padding:20px; border-radius:16px; box-shadow:0 12px 30px rgba(84, 44, 39, 0.4); z-index:100; display:none; width: 320px;">
+      <h3 style="margin:0 0 15px; font-size:1.1rem; font-family:Georgia, serif;">Your Order</h3>
+      <ul id="cart-items" style="list-style:none; padding:0; margin:0 0 15px; max-height:180px; overflow-y:auto; font-size:0.9rem; border-bottom:1px solid rgba(255,255,255,0.2);"></ul>
+      <div style="display:flex; justify-content:space-between; font-weight:bold; margin-bottom:15px;">
+        <span>Total:</span><span id="cart-total">₹0</span>
+      </div>
+      <button onclick="openPaymentModal()" style="background:var(--gold); color:var(--wine); border:none; padding:12px 15px; border-radius:8px; cursor:pointer; width:100%; font-weight:bold; font-size:0.95rem;">
+        Proceed to Checkout ↗
+      </button>
+  </div>
+
+  <div id="payment-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:200; place-items:center; backdrop-filter:blur(3px);">
+      <div style="background:#fffaf3; padding:28px; border-radius:18px; width:min(90%, 380px); color:#30211e; box-shadow:0 20px 40px rgba(0,0,0,0.3); text-align:center;">
+          <h3 style="margin:0 0 10px; font-family:Georgia, serif; font-size:1.4rem; color:var(--wine);">Complete Order</h3>
+          <p id="modal-amount" style="font-weight:bold; font-size:1.2rem; margin:0 0 20px; color:var(--berry);">Amount: ₹0</p>
+          
+          <button onclick="completeOrder('Cash on Delivery', 'COD', 'UNPAID')" style="width:100%; padding:12px; margin-bottom:12px; background:#e89005; color:#fff; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">
+            💵 Cash on Delivery (COD)
+          </button>
+
+          <button onclick="payWithRazorpay()" style="width:100%; padding:12px; margin-bottom:12px; background:var(--wine); color:#fff; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">
+            💳 Pay via Gateway (Cards / NetBanking)
+          </button>
+          
+          <button onclick="showUpiQR()" style="width:100%; padding:12px; margin-bottom:12px; background:#fff; color:var(--wine); border:1px solid var(--wine); border-radius:8px; font-weight:bold; cursor:pointer;">
+            📱 Scan UPI QR (GPay / PhonePe / Paytm)
+          </button>
+
+          <div id="upi-qr-box" style="display:none; margin:15px 0;">
+              <img id="upi-qr-image" src="" alt="Scan to Pay" style="width:170px; height:170px; border:1px solid #ddd; border-radius:8px; padding:6px; background:#fff; margin:auto;" />
+              <p style="font-size:0.8rem; color:#766762; margin:8px 0 12px;">Scan with any UPI app and click Confirm below.</p>
+              <button onclick="completeOrder('Direct UPI (QR)', 'MANUAL-UPI', 'PAID')" style="width:100%; padding:10px; background:#2e7d32; color:#fff; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">
+                I Have Paid via UPI ✓
+              </button>
+          </div>
+
+          <button onclick="closePaymentModal()" style="background:transparent; border:none; color:#766762; font-size:0.85rem; cursor:pointer; margin-top:8px;">Cancel</button>
+      </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend', cartAndPaymentHTML);
+
+  // Add Item Buttons to Menu
+  document.querySelectorAll('.menu-item').forEach(item => {
+      const name = item.querySelector('h3').innerText;
+      const priceElement = item.querySelector('.price');
+      const price = parseInt(priceElement.innerText.replace('₹', ''));
+
+      const actionDiv = document.createElement('div');
+      actionDiv.style.cssText = 'display:flex; align-items:center; gap:10px;';
+      
+      const btn = document.createElement('button');
+      btn.innerText = '+ Add';
+      btn.style.cssText = 'background:var(--wine); color:#fff; border:none; padding:6px 12px; border-radius:99px; cursor:pointer; font-size:0.8rem; font-weight:bold;';
+      btn.onclick = () => addToCart(name, price);
+
+      item.replaceChild(actionDiv, priceElement);
+      actionDiv.appendChild(priceElement);
+      actionDiv.appendChild(btn);
+  });
+
+  // Shopping Logic
+  let cart = [];
+  function addToCart(name, price) {
+      cart.push({name, price});
+      updateCartUI();
+  }
+
+  function updateCartUI() {
+      const widget = document.getElementById('cart-widget');
+      const list = document.getElementById('cart-items');
+      const totalEl = document.getElementById('cart-total');
+
+      widget.style.display = cart.length > 0 ? 'block' : 'none';
+      list.innerHTML = '';
+      
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      cart.forEach(item => {
+          list.innerHTML += `<li style="display:flex; justify-content:space-between; margin-bottom:8px;"><span>${item.name}</span><span>₹${item.price}</span></li>`;
+      });
+      totalEl.innerText = '₹' + total;
+  }
+
+  function openPaymentModal() {
+      if (cart.length === 0) return;
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      document.getElementById('modal-amount').innerText = 'Amount: ₹' + total;
+      document.getElementById('upi-qr-box').style.display = 'none';
+      document.getElementById('payment-modal').style.display = 'grid';
+  }
+
+  function closePaymentModal() {
+      document.getElementById('payment-modal').style.display = 'none';
+  }
+
+  function payWithRazorpay() {
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      const options = {
+          key: RAZORPAY_KEY_ID,
+          amount: total * 100, 
+          currency: "INR",
+          name: "Godavari Bakes",
+          description: "Bakery Order Payment",
+          handler: function (response) {
+              completeOrder("Razorpay", response.razorpay_payment_id, "PAID");
+          },
+          theme: { color: "#542c27" }
+      };
+      const rzp = new Razorpay(options);
+      rzp.on('payment.failed', function (response) { alert("Payment failed."); });
+      rzp.open();
+  }
+
+  function showUpiQR() {
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      const upiUrl = `upi://pay?pa=${encodeURIComponent(SHOP_UPI_ID)}&pn=Godavari%20Bakes&am=${total}&cu=INR`;
+      document.getElementById('upi-qr-image').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
+      document.getElementById('upi-qr-box').style.display = 'block';
+  }
+
+  function completeOrder(method, refId, paymentStatus) {
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      const order = {
+          id: 'ORD-' + Math.floor(1000 + Math.random() * 9000),
+          items: cart,
+          total: total,
+          time: new Date().toLocaleTimeString(),
+          status: 'New',
+          paymentStatus: paymentStatus,
+          paymentMethod: method,
+          paymentRef: refId === 'MANUAL-UPI' ? "UPI-" + Date.now().toString().slice(-6) : refId
+      };
+
+      let orders = JSON.parse(localStorage.getItem('godavari_orders') || '[]');
+      orders.push(order);
+      localStorage.setItem('godavari_orders', JSON.stringify(orders));
+
+      closePaymentModal();
+      alert(`Order ${order.id} sent successfully to the bakery!`);
+      cart = [];
+      updateCartUI();
+  }
+
+  // Basic Menu Filtering Logic
+  const filters=[...document.querySelectorAll('.filter')],items=[...document.querySelectorAll('.menu-item')],search=document.getElementById('menuSearch');let category='all';
+  function filterMenu(){const q=search.value.trim().toLowerCase();items.forEach(item=>{const catMatch=category==='all'||item.dataset.category===category;const textMatch=item.textContent.toLowerCase().includes(q);item.style.display=catMatch&&textMatch?'flex':'none'})}
+  filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));btn.classList.add('active');category=btn.dataset.filter;filterMenu()}));search.addEventListener('input',filterMenu);
+</script>
+</body>
+</html>
